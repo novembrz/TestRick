@@ -13,7 +13,7 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: .verticalSpacing) {
                 searchView
                 gridView
             }
@@ -46,6 +46,7 @@ struct SearchView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: .searchSize)
+                .foregroundColor(viewModel.searchText != "" ? .black : Color(.searchColor).opacity(.iconColorOpacity))
             
             Spacer()
             
@@ -55,6 +56,7 @@ struct SearchView: View {
                 } label: {
                     Image(systemName: .xmark)
                         .padding(.vertical)
+                        .foregroundColor(.black)
                 }
             }
         }
@@ -102,10 +104,12 @@ private extension CGFloat {
     static let seachRadius: CGFloat = 10
     
     static let horizontalPadding: CGFloat = 20
+    static let verticalSpacing: CGFloat = 26
 }
 
 private extension Double {
     static let colorOpacity: CGFloat = 0.2
+    static let iconColorOpacity: CGFloat = 0.5
 }
 
 private extension String {
