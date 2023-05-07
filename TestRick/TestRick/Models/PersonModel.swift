@@ -14,11 +14,11 @@ struct PersonModel: Decodable {
     let species: String
     let type: String
     let gender: String
-    let image: String
+    let image: String?
     let url: String
-    let episodes: [String]
-    let origin: Place
-    let location: Place
+    let episodes: [String]?
+    let origin: Place?
+    let location: Place?
     
     struct Place: Decodable, Hashable {
         let name: String

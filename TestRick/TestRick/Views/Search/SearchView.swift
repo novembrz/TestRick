@@ -14,9 +14,8 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: .verticalSpacing) {
-                searchView
-                gridView
-                Spacer()
+                    searchView
+                    gridView
             }
             .padding(.horizontal, .horizontalPadding)
             .navigationTitle(String.title)
@@ -71,22 +70,28 @@ struct SearchView: View {
     //MARK: - GridView
 
     var gridView: some View {
-        LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
-            ForEach(viewModel.persons, id: \.self) { person in
+        ScrollView {
+            LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
+                ForEach(viewModel.persons, id: \.self) { person in
                     VStack {
-                        Image("Picture")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: .imageHeight)
-                            .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .center)
-                            .clipped()
-                            .cornerRadius(.itemCornerRadius)
+                        AsyncImage(url: URL(string: person.image ?? "")) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: .imageHeight)
+                        .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .center)
+                        .clipped()
+                        .cornerRadius(.itemCornerRadius)
                         
                         Text(person.name)
                             .foregroundColor(.black)
                             .font(.system(size: .textSize, weight: .regular))
+                            .multilineTextAlignment(.center)
                     }
                 }
+            }
         }
     }
 }
