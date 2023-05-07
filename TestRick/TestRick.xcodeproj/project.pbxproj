@@ -13,6 +13,7 @@
 		87CD5A842A07B5D40006668A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CD5A832A07B5D40006668A /* Preview Assets.xcassets */; };
 		87CD5A8B2A07B7940006668A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A8A2A07B7940006668A /* SearchView.swift */; };
 		87CD5A8D2A07B79A0006668A /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A8C2A07B79A0006668A /* FavoriteView.swift */; };
+		87CD5A8F2A07C56C0006668A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A8E2A07C56C0006668A /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		87CD5A832A07B5D40006668A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		87CD5A8A2A07B7940006668A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		87CD5A8C2A07B79A0006668A /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		87CD5A8E2A07C56C0006668A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				87CD5A7C2A07B5D30006668A /* TestRickApp.swift */,
 				87CD5A7E2A07B5D30006668A /* MainView.swift */,
 				87CD5A8A2A07B7940006668A /* SearchView.swift */,
+				87CD5A8E2A07C56C0006668A /* SearchViewModel.swift */,
 				87CD5A8C2A07B79A0006668A /* FavoriteView.swift */,
 				87CD5A802A07B5D40006668A /* Assets.xcassets */,
 				87CD5A822A07B5D40006668A /* Preview Content */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CD5A8D2A07B79A0006668A /* FavoriteView.swift in Sources */,
+				87CD5A8F2A07C56C0006668A /* SearchViewModel.swift in Sources */,
 				87CD5A7F2A07B5D30006668A /* MainView.swift in Sources */,
 				87CD5A8B2A07B7940006668A /* SearchView.swift in Sources */,
 				87CD5A7D2A07B5D30006668A /* TestRickApp.swift in Sources */,
