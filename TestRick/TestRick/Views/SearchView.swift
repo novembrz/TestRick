@@ -16,10 +16,14 @@ struct SearchView: View {
             VStack(spacing: .verticalSpacing) {
                 searchView
                 gridView
+                Spacer()
             }
             .padding(.horizontal, .horizontalPadding)
             .navigationTitle(String.title)
             .background(Color(.backgroundColor), ignoresSafeAreaEdges: .all)
+            .onAppear {
+                viewModel.getPersons()
+            }
         }
     }
     
@@ -69,20 +73,20 @@ struct SearchView: View {
     var gridView: some View {
         LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
             ForEach(viewModel.persons, id: \.self) { person in
-                VStack {
-                    Image(person)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: .imageHeight)
-                        .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .center)
-                        .clipped()
-                        .cornerRadius(.itemCornerRadius)
-                    
-                    Text(person)
-                        .foregroundColor(.black)
-                        .font(.system(size: .textSize, weight: .regular))
+                    VStack {
+                        Image("Picture")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: .imageHeight)
+                            .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .center)
+                            .clipped()
+                            .cornerRadius(.itemCornerRadius)
+                        
+                        Text(person.name)
+                            .foregroundColor(.black)
+                            .font(.system(size: .textSize, weight: .regular))
+                    }
                 }
-            }
         }
     }
 }

@@ -9,11 +9,14 @@ import SwiftUI
 
 extension SearchView {
     @MainActor class SearchViewModel: ObservableObject {
-        
+        @Published var persons: [PersonModel] = []
         @Published var searchText: String = ""
         
-        let persons = ["Picture", "Picture 1", "Picture 2", "Picture 3"]
         let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: .columnSpacing), count: .columnCount)
+        
+        func getPersons() {
+            
+        }
     }
 }
 
