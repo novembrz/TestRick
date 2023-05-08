@@ -17,8 +17,10 @@ extension SearchView {
         
         @Published var persons: [PersonModel] = []
         @Published var searchText: String = ""
+
+        var nextPage: String? = ""
         
-        let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: .columnSpacing), count: .columnCount)
+        let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: .columnSpacing, alignment: .top), count: .columnCount)
         
         
         //MARK: - Fetch
@@ -29,14 +31,17 @@ extension SearchView {
                 try? await fetchData()
             }
         }
-        
+
         @MainActor
         private func fetchData() async throws {
+            guard nextPage != nil else { return }
+            
             if let infoData = try await service.fetchData(
-                urlString: "https://rickandmortyapi.com/api/character",
+                urlString: (nextPage == "" ? .urlString : nextPage)!,
                 model: InfoModel.self
             ) {
-                self.persons = infoData.results
+                self.persons += infoData.results
+                self.nextPage = infoData.info.next
             }
         }
     }
@@ -51,4 +56,8 @@ private extension CGFloat {
 
 private extension Int {
     static let columnCount = 3
+}
+
+private extension String {
+    static let urlString = "https://rickandmortyapi.com/api/character"
 }

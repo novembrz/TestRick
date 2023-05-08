@@ -72,25 +72,37 @@ struct SearchView: View {
     var gridView: some View {
         ScrollView {
             LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
-                ForEach(viewModel.persons, id: \.self) { person in
-                    VStack {
-                        AsyncImage(url: URL(string: person.image ?? "")) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: .imageHeight)
-                        .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .center)
-                        .clipped()
-                        .cornerRadius(.itemCornerRadius)
-                        
-                        Text(person.name)
-                            .foregroundColor(.black)
-                            .font(.system(size: .textSize, weight: .regular))
-                            .multilineTextAlignment(.center)
-                    }
+                ForEach(0..<viewModel.persons.count, id: \.self) { index in
+                    CardView(
+                        viewModel.persons[index],
+                        isLast: index == viewModel.persons.count - 1
+                    )
                 }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func CardView(_ person: PersonModel, isLast: Bool) -> some View {
+        VStack {
+            AsyncImage(url: URL(string: person.image ?? "")) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .aspectRatio(contentMode: .fill)
+            .frame(height: .imageHeight)
+            .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
+            .clipped()
+            .cornerRadius(.itemCornerRadius)
+            
+            Text(person.name)
+                .font(.system(size: .textSize, weight: .regular))
+                .multilineTextAlignment(.center)
+        }
+        .onAppear {
+            if isLast {
+                viewModel.getPersons()
             }
         }
     }
