@@ -23,6 +23,9 @@ struct SearchView: View {
             .onAppear {
                 viewModel.getPersons()
             }
+            .onChange(of: viewModel.searchText) { newValue in
+                viewModel.searchPersons(newValue)
+            }
         }
     }
     
@@ -68,10 +71,10 @@ struct SearchView: View {
     }
     
     //MARK: - GridView
-
+    
     var gridView: some View {
         ScrollView {
-            LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
+           LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
                 ForEach(0..<viewModel.persons.count, id: \.self) { index in
                     CardView(
                         viewModel.persons[index],
