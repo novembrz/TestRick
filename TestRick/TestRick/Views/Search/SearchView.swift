@@ -88,11 +88,25 @@ struct SearchView: View {
     @ViewBuilder
     func CardView(_ person: PersonModel, isLast: Bool) -> some View {
         VStack {
-            AsyncImage(url: URL(string: person.image ?? "")) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
+            CacheAsyncImage(
+                url: URL(string: person.image ?? "")!
+            ) { phase in
+                switch phase {
+                case .empty:
+                    HStack {
+                        ProgressView()
+                    }
+                case .success(let image):
+                    image.resizable()
+                    
+                case .failure(_):
+                    HStack {
+                        ProgressView()
+                    }
+                @unknown default:
+                    fatalError()
+                }
+        }
             .aspectRatio(contentMode: .fill)
             .frame(height: .imageHeight)
             .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
@@ -104,7 +118,7 @@ struct SearchView: View {
                 .multilineTextAlignment(.center)
         }
         .onAppear {
-            if isLast {
+            if isLast && !viewModel.isSearching {
                 viewModel.getPersons()
             }
         }

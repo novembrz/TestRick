@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8776636F2A0CFC27004ACB43 /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776636E2A0CFC27004ACB43 /* CacheAsyncImage.swift */; };
 		87CD5A7D2A07B5D30006668A /* TestRickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A7C2A07B5D30006668A /* TestRickApp.swift */; };
 		87CD5A7F2A07B5D30006668A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A7E2A07B5D30006668A /* MainView.swift */; };
 		87CD5A812A07B5D40006668A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CD5A802A07B5D40006668A /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8776636E2A0CFC27004ACB43 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
 		87CD5A792A07B5D30006668A /* TestRick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CD5A7C2A07B5D30006668A /* TestRickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRickApp.swift; sourceTree = "<group>"; };
 		87CD5A7E2A07B5D30006668A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				87CD5A8A2A07B7940006668A /* SearchView.swift */,
 				87CD5A8E2A07C56C0006668A /* SearchViewModel.swift */,
+				8776636E2A0CFC27004ACB43 /* CacheAsyncImage.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CD5A932A07CD9F0006668A /* PersonModel.swift in Sources */,
+				8776636F2A0CFC27004ACB43 /* CacheAsyncImage.swift in Sources */,
 				87CD5A8D2A07B79A0006668A /* FavoriteView.swift in Sources */,
 				87CD5A8F2A07C56C0006668A /* SearchViewModel.swift in Sources */,
 				87CD5A9A2A07D5EF0006668A /* NetworkResponseError.swift in Sources */,
