@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8776636F2A0CFC27004ACB43 /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776636E2A0CFC27004ACB43 /* CacheAsyncImage.swift */; };
+		877663722A0E27CC004ACB43 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877663712A0E27CC004ACB43 /* PersonView.swift */; };
+		877663742A0E27D7004ACB43 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877663732A0E27D7004ACB43 /* PersonViewModel.swift */; };
+		877663772A0E291A004ACB43 /* Color + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877663762A0E291A004ACB43 /* Color + Extensions.swift */; };
 		87CD5A7D2A07B5D30006668A /* TestRickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A7C2A07B5D30006668A /* TestRickApp.swift */; };
 		87CD5A7F2A07B5D30006668A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD5A7E2A07B5D30006668A /* MainView.swift */; };
 		87CD5A812A07B5D40006668A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CD5A802A07B5D40006668A /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		8776636E2A0CFC27004ACB43 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
+		877663712A0E27CC004ACB43 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		877663732A0E27D7004ACB43 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
+		877663762A0E291A004ACB43 /* Color + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extensions.swift"; sourceTree = "<group>"; };
 		87CD5A792A07B5D30006668A /* TestRick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CD5A7C2A07B5D30006668A /* TestRickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRickApp.swift; sourceTree = "<group>"; };
 		87CD5A7E2A07B5D30006668A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -48,6 +54,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		877663702A0E27BE004ACB43 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				877663712A0E27CC004ACB43 /* PersonView.swift */,
+				877663732A0E27D7004ACB43 /* PersonViewModel.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		877663752A0E28F1004ACB43 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				877663762A0E291A004ACB43 /* Color + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		87CD5A702A07B5D30006668A = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +95,7 @@
 				87CD5A912A07CD890006668A /* Services */,
 				87CD5A942A07CDA50006668A /* Models */,
 				87CD5A902A07CD7C0006668A /* Views */,
+				877663752A0E28F1004ACB43 /* Extensions */,
 				87CD5A822A07B5D40006668A /* Preview Content */,
 			);
 			path = TestRick;
@@ -90,6 +114,7 @@
 			children = (
 				87CD5A7E2A07B5D30006668A /* MainView.swift */,
 				87CD5A9D2A07DA8C0006668A /* Search */,
+				877663702A0E27BE004ACB43 /* Person */,
 				87CD5A8C2A07B79A0006668A /* FavoriteView.swift */,
 			);
 			path = Views;
@@ -196,8 +221,11 @@
 				87CD5A932A07CD9F0006668A /* PersonModel.swift in Sources */,
 				8776636F2A0CFC27004ACB43 /* CacheAsyncImage.swift in Sources */,
 				87CD5A8D2A07B79A0006668A /* FavoriteView.swift in Sources */,
+				877663742A0E27D7004ACB43 /* PersonViewModel.swift in Sources */,
 				87CD5A8F2A07C56C0006668A /* SearchViewModel.swift in Sources */,
 				87CD5A9A2A07D5EF0006668A /* NetworkResponseError.swift in Sources */,
+				877663722A0E27CC004ACB43 /* PersonView.swift in Sources */,
+				877663772A0E291A004ACB43 /* Color + Extensions.swift in Sources */,
 				87CD5A7F2A07B5D30006668A /* MainView.swift in Sources */,
 				87CD5A8B2A07B7940006668A /* SearchView.swift in Sources */,
 				87CD5A7D2A07B5D30006668A /* TestRickApp.swift in Sources */,

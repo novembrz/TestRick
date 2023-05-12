@@ -19,7 +19,7 @@ struct SearchView: View {
             }
             .padding(.horizontal, .horizontalPadding)
             .navigationTitle(String.title)
-            .background(Color(.backgroundColor), ignoresSafeAreaEdges: .all)
+            .background(Color.background(), ignoresSafeAreaEdges: .all)
             .onAppear {
                 viewModel.getPersons()
             }
@@ -39,7 +39,7 @@ struct SearchView: View {
             .accentColor(.green)
             .padding(.vertical, .searchVerticalPadding)
             .padding(.horizontal, .searchHorizonralPadding)
-            .background(Color(.searchColor).opacity(.colorOpacity))
+            .background(Color.search().opacity(.colorOpacity))
             .cornerRadius(.seachRadius)
             .overlay {
                 xmarkButtonAndIcon
@@ -52,7 +52,7 @@ struct SearchView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: .searchSize)
-                .foregroundColor(viewModel.searchText != "" ? .black : Color(.searchColor).opacity(.iconColorOpacity))
+                .foregroundColor(viewModel.searchText != "" ? .black : Color.search().opacity(.iconColorOpacity))
             
             Spacer()
             
@@ -106,7 +106,7 @@ struct SearchView: View {
                 @unknown default:
                     fatalError()
                 }
-        }
+            }
             .aspectRatio(contentMode: .fill)
             .frame(height: .imageHeight)
             .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
@@ -151,8 +151,6 @@ private extension Double {
 }
 
 private extension String {
-    static let backgroundColor = "BackgroundColor"
-    static let searchColor = "SearchColor"
     static let title = "Rickipedia"
     static let placeholder = "Поиск"
     static let searchIconName = "magnifyingglass"
