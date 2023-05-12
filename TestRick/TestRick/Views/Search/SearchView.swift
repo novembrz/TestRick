@@ -14,8 +14,12 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: .verticalSpacing) {
-                    searchView
-                    gridView
+                searchView
+                GridView(persons: viewModel.persons) { isLast in
+                    if isLast && !viewModel.isSearching {
+                        viewModel.getPersons()
+                    }
+                }
             }
             .padding(.horizontal, .horizontalPadding)
             .navigationTitle(String.title)
@@ -69,76 +73,11 @@ struct SearchView: View {
         .padding(.horizontal, .searchIconsPadding)
         .foregroundColor(.black)
     }
-    
-    //MARK: - GridView
-    
-    var gridView: some View {
-        ScrollView {
-           LazyVGrid(columns: viewModel.columns, spacing: .rowSpacing) {
-                ForEach(0..<viewModel.persons.count, id: \.self) { index in
-                    CardView(
-                        viewModel.persons[index],
-                        isLast: index == viewModel.persons.count - 1
-                    )
-                }
-            }
-        }
-    }
-    
-    @ViewBuilder
-    func CardView(_ person: PersonModel, isLast: Bool) -> some View {
-        NavigationLink {
-            PersonView(person: person)
-        } label: {
-            VStack {
-                CacheAsyncImage(
-                    url: URL(string: person.image ?? "")!
-                ) { phase in
-                    switch phase {
-                    case .empty:
-                        HStack {
-                            ProgressView()
-                        }
-                    case .success(let image):
-                        image.resizable()
-                        
-                    case .failure(_):
-                        HStack {
-                            ProgressView()
-                        }
-                    @unknown default:
-                        fatalError()
-                    }
-                }
-                .aspectRatio(contentMode: .fill)
-                .frame(height: .imageHeight)
-                .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
-                .clipped()
-                .cornerRadius(.itemCornerRadius)
-                
-                Text(person.name)
-                    .font(.system(size: .textSize, weight: .regular))
-                    .multilineTextAlignment(.center)
-            }
-            .onAppear {
-                if isLast && !viewModel.isSearching {
-                    viewModel.getPersons()
-                }
-            }
-        }
-    }
 }
 
 //MARK: - Extensions
 
 private extension CGFloat {
-    static let rowSpacing: CGFloat = 23
-    static let imageHeight: CGFloat = 145
-    static let minWidth: CGFloat = 90
-    static let maxWidth: CGFloat = 125
-    static let itemCornerRadius: CGFloat = 15
-    static let textSize: CGFloat = 12
-    
     static let searchSize: CGFloat = 16
     static let searchVerticalPadding: CGFloat = 7
     static let searchHorizonralPadding: CGFloat = 29

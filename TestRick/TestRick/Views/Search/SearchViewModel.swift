@@ -19,9 +19,6 @@ extension SearchView {
         var nextPage: String? = ""
         var isSearching = false
         
-        let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: .columnSpacing, alignment: .top), count: .columnCount)
-        
-        
         //MARK: - Fetch
 
         func getPersons() {
@@ -74,14 +71,6 @@ extension SearchView {
 
 
 //MARK: - Extensions
-
-private extension CGFloat {
-    static let columnSpacing: CGFloat = 18
-}
-
-private extension Int {
-    static let columnCount = 3
-}
 
 private extension String {
     static let urlString = "https://rickandmortyapi.com/api/character"
