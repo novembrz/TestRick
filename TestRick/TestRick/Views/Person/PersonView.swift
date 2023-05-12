@@ -21,6 +21,9 @@ struct PersonView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .background(Color.background(), ignoresSafeAreaEdges: .all)
+        .toolbar {
+            favouriteButton
+        }
     }
     
     //MARK: - avatarView
@@ -37,6 +40,14 @@ struct PersonView: View {
                 .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).maxY + 660) // parallax
             }
             .frame(height: 450)
+        }
+    }
+    
+    var favouriteButton: some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "heart")
         }
     }
     
