@@ -34,9 +34,9 @@ struct PersonView: View {
                     ProgressView()
                 }
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).maxY + 550) // parallax
+                .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).maxY + 660) // parallax
             }
-            .frame(height: 430)
+            .frame(height: 450)
         }
     }
     
@@ -189,6 +189,6 @@ private extension CGFloat {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView(person: PersonModel(id: 1, name: "Dasha", status: "alive", species: "human", type: "type", gender: "female", image: "https://ptica-village.ru/wp-content/uploads/a/3/f/a3f8de2641d3dcae10c4fe8e8674a6c4.jpeg", url: "url", episodes: ["Episode 1", "Episodw 2"], origin: PersonModel.Place(name: "Earth"), location: PersonModel.Place(name: "Earth")))
+        PersonView(person: PersonModel(id: 1, name: "Abradolfr", status: "alive", species: "human", type: "type", gender: "female", image: "https://ptica-village.ru/wp-content/uploads/a/3/f/a3f8de2641d3dcae10c4fe8e8674a6c4.jpeg", url: "url", episodes: ["Episode 1", "Episodw 2"], origin: PersonModel.Place(name: "Earth"), location: PersonModel.Place(name: "Earth")))
     }
 }

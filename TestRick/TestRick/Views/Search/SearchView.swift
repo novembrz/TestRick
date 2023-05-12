@@ -87,39 +87,43 @@ struct SearchView: View {
     
     @ViewBuilder
     func CardView(_ person: PersonModel, isLast: Bool) -> some View {
-        VStack {
-            CacheAsyncImage(
-                url: URL(string: person.image ?? "")!
-            ) { phase in
-                switch phase {
-                case .empty:
-                    HStack {
-                        ProgressView()
+        NavigationLink {
+            PersonView(person: person)
+        } label: {
+            VStack {
+                CacheAsyncImage(
+                    url: URL(string: person.image ?? "")!
+                ) { phase in
+                    switch phase {
+                    case .empty:
+                        HStack {
+                            ProgressView()
+                        }
+                    case .success(let image):
+                        image.resizable()
+                        
+                    case .failure(_):
+                        HStack {
+                            ProgressView()
+                        }
+                    @unknown default:
+                        fatalError()
                     }
-                case .success(let image):
-                    image.resizable()
-                    
-                case .failure(_):
-                    HStack {
-                        ProgressView()
-                    }
-                @unknown default:
-                    fatalError()
                 }
+                .aspectRatio(contentMode: .fill)
+                .frame(height: .imageHeight)
+                .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
+                .clipped()
+                .cornerRadius(.itemCornerRadius)
+                
+                Text(person.name)
+                    .font(.system(size: .textSize, weight: .regular))
+                    .multilineTextAlignment(.center)
             }
-            .aspectRatio(contentMode: .fill)
-            .frame(height: .imageHeight)
-            .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
-            .clipped()
-            .cornerRadius(.itemCornerRadius)
-            
-            Text(person.name)
-                .font(.system(size: .textSize, weight: .regular))
-                .multilineTextAlignment(.center)
-        }
-        .onAppear {
-            if isLast && !viewModel.isSearching {
-                viewModel.getPersons()
+            .onAppear {
+                if isLast && !viewModel.isSearching {
+                    viewModel.getPersons()
+                }
             }
         }
     }
