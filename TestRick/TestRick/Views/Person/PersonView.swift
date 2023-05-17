@@ -155,7 +155,7 @@ struct PersonView: View {
     
     var episodesView: some View {
         VStack(alignment: .leading, spacing: .titleSpacing) {
-            if let episodes = person.episodes {
+            if let episodes = person.episode {
                 Text(String.episodesTitle)
                     .font(.system(size: .titleTextSize, weight: .bold))
                     .padding(.horizontal, 21)
@@ -163,7 +163,7 @@ struct PersonView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 13) {
                         ForEach(episodes, id: \.self) { episode in
-                            Episode(episode)
+                            Episode(episode.deletingPrefix("https://rickandmortyapi.com/api/episode/"))
                         }
                     }
                     .padding(.horizontal, .horizontalSpacing)

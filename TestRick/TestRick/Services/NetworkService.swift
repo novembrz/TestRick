@@ -37,7 +37,6 @@ actor NetworkService {
     //MARK: - handle Network Response
     
     private func handleNetworkResponse(_ response: HTTPURLResponse) async throws -> NetworkResponseError {
-        print("🥩", response.statusCode)
         switch response.statusCode {
         case 400...499: return NetworkResponseError.clientError
         case 500...599: return NetworkResponseError.serverError

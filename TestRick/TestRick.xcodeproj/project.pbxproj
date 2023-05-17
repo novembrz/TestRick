@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		871841F92A13B84D001022C5 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871841F82A13B84D001022C5 /* RealmService.swift */; };
+		871841FB2A150825001022C5 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871841FA2A150825001022C5 /* String + Extensions.swift */; };
 		873779B22A10D3F0003523CE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 873779B12A10D3F0003523CE /* Realm */; };
 		873779B42A10D3F0003523CE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 873779B32A10D3F0003523CE /* RealmSwift */; };
 		873779B62A10D7C7003523CE /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873779B52A10D7C7003523CE /* RealmModels.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		871841F82A13B84D001022C5 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		871841FA2A150825001022C5 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		873779B52A10D7C7003523CE /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModels.swift; sourceTree = "<group>"; };
 		8776636E2A0CFC27004ACB43 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
 		877663712A0E27CC004ACB43 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				877663762A0E291A004ACB43 /* Color + Extensions.swift */,
+				871841FA2A150825001022C5 /* String + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				877663722A0E27CC004ACB43 /* PersonView.swift in Sources */,
 				873779B62A10D7C7003523CE /* RealmModels.swift in Sources */,
 				877663772A0E291A004ACB43 /* Color + Extensions.swift in Sources */,
+				871841FB2A150825001022C5 /* String + Extensions.swift in Sources */,
 				87CD5A7F2A07B5D30006668A /* MainView.swift in Sources */,
 				87CD5A8B2A07B7940006668A /* SearchView.swift in Sources */,
 				8776637D2A0E4AF7004ACB43 /* GridView.swift in Sources */,

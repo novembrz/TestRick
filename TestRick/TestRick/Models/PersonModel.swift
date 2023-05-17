@@ -16,7 +16,7 @@ struct PersonModel: Decodable {
     let gender: String
     let image: String?
     let url: String
-    let episodes: [String]?
+    let episode: [String]?
     let origin: Place?
     let location: Place?
     
@@ -33,7 +33,7 @@ struct PersonModel: Decodable {
         self.gender = object.gender
         self.image = object.image
         self.url = object.url
-        self.episodes = Array(object.episodes)
+        self.episode = Array(object.episode)
         self.origin = Place(name: object.placeOrigin ?? "")
         self.location = Place(name: object.placeLocation ?? "")
     }

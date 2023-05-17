@@ -59,19 +59,11 @@ extension SearchView {
             }
             self.isSearching = true
             
-//            if let infp
-            
-            
-            
-            do {
-                if let infoData = try await service.fetchData(
-                    urlString: .nameUrlString+text,
-                    model: InfoModel.self
-                ) {
-                    self.persons = infoData.results
-                }
-            } catch {
-                print("error: \(error)")
+            if let infoData = try await service.fetchData(
+                urlString: .nameUrlString+text,
+                model: InfoModel.self
+            ) {
+                self.persons = infoData.results
             }
         }
     }

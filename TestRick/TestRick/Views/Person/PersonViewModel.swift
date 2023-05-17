@@ -35,7 +35,7 @@ extension PersonView {
                         gender: person.gender,
                         image: person.image,
                         url: person.url,
-                        episodes: person.episodes,
+                        episode: person.episode,
                         placeOrigin: person.origin?.name,
                         placeLocation: person.location?.name
                     )

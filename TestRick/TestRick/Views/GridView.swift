@@ -38,17 +38,10 @@ struct GridView: View {
                     url: URL(string: person.image ?? "")!
                 ) { phase in
                     switch phase {
-                    case .empty:
-                        HStack {
-                            ProgressView()
-                        }
+                    case .empty, .failure(_):
+                        ProgressView()
                     case .success(let image):
                         image.resizable()
-                        
-                    case .failure(_):
-                        HStack {
-                            ProgressView()
-                        }
                     @unknown default:
                         fatalError()
                     }

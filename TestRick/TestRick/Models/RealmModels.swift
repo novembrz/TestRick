@@ -16,7 +16,7 @@ final class PersonItem: Object, ObjectKeyIdentifiable {
     @Persisted var gender: String
     @Persisted var image: String?
     @Persisted var url: String
-    @Persisted var episodes = List<String>()
+    @Persisted var episode = List<String>()
     @Persisted var placeOrigin: String?
     @Persisted var placeLocation: String?
     
@@ -26,11 +26,11 @@ final class PersonItem: Object, ObjectKeyIdentifiable {
     
     override init() {}
     
-    init(personId: Int, name: String, status: String, species: String, type: String, gender: String, image: String? = nil, url: String, episodes: [String]?, placeOrigin: String? = nil, placeLocation: String? = nil) {
+    init(personId: Int, name: String, status: String, species: String, type: String, gender: String, image: String? = nil, url: String, episode: [String]?, placeOrigin: String? = nil, placeLocation: String? = nil) {
         
-        let _episodes = List<String>()
-        if let episodes = episodes {
-            _episodes.append(objectsIn: episodes)
+        let _episode = List<String>()
+        if let episode = episode {
+            _episode.append(objectsIn: episode)
         }
         
         self.personId = personId
@@ -41,7 +41,7 @@ final class PersonItem: Object, ObjectKeyIdentifiable {
         self.gender = gender
         self.image = image
         self.url = url
-        self.episodes = _episodes
+        self.episode = _episode
         self.placeOrigin = placeOrigin
         self.placeLocation = placeLocation
     }
