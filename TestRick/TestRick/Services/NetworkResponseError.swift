@@ -8,20 +8,21 @@
 import Foundation
 
 enum NetworkResponseError {
-    case authenticationError
+    case clientError
     case badRequest
     case outdated
     case serverError
     case internetError
     case noData
     case unableToDecode
+    case unknownError
 }
 
 extension NetworkResponseError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .authenticationError:
-            return NSLocalizedString("💔 Сначала вам нужно пройти проверку подлинности", comment: "")
+        case .clientError:
+            return NSLocalizedString("💔 Ошибка на клиенте", comment: "")
         case .badRequest:
             return NSLocalizedString("💔 Неправильный запрос!", comment: "")
         case .outdated:
@@ -34,6 +35,8 @@ extension NetworkResponseError: LocalizedError {
             return NSLocalizedString("💔 Не удалось получить данные", comment: "")
         case .unableToDecode:
             return NSLocalizedString("💔💔 Не получилось декодировать данные", comment: "")
+        case .unknownError:
+            return NSLocalizedString("💔💔 Неизвестная ошибка", comment: "")
         }
     }
 }

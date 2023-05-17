@@ -23,6 +23,20 @@ struct PersonModel: Decodable {
     struct Place: Decodable, Hashable {
         let name: String
     }
+    
+    init(object: PersonItem) {
+        self.id = object.personId
+        self.name = object.name
+        self.status = object.status
+        self.species = object.species
+        self.type = object.type
+        self.gender = object.gender
+        self.image = object.image
+        self.url = object.url
+        self.episodes = Array(object.episodes)
+        self.origin = Place(name: object.placeOrigin ?? "")
+        self.location = Place(name: object.placeLocation ?? "")
+    }
 }
 
 extension PersonModel: Hashable {

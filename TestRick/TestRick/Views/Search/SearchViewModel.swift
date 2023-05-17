@@ -52,18 +52,26 @@ extension SearchView {
         
         @MainActor
         private func fetchSearchData(_ text: String) async throws {
-            guard text != "" else {
+            guard !text.isEmpty else {
                 self.persons = fetchPersons
                 self.isSearching = false
                 return
             }
             self.isSearching = true
             
-            if let infoData = try await service.fetchData(
-                urlString: .nameUrlString+text,
-                model: InfoModel.self
-            ) {
-                self.persons = infoData.results
+//            if let infp
+            
+            
+            
+            do {
+                if let infoData = try await service.fetchData(
+                    urlString: .nameUrlString+text,
+                    model: InfoModel.self
+                ) {
+                    self.persons = infoData.results
+                }
+            } catch {
+                print("error: \(error)")
             }
         }
     }

@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct PersonView: View {
     @StateObject var viewModel = PersonViewModel()
     let person: PersonModel
-    
+        
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
@@ -23,6 +24,9 @@ struct PersonView: View {
         .background(Color.background(), ignoresSafeAreaEdges: .all)
         .toolbar {
             favouriteButton
+        }
+        .onAppear {
+            viewModel.checksIsItFavourite(person.id)
         }
     }
     
@@ -43,11 +47,14 @@ struct PersonView: View {
         }
     }
     
+    //MARK: - favouriteButton
+    
     var favouriteButton: some View {
         Button {
-            
+            viewModel.tappedToFavourite(person: person)
         } label: {
-            Image(systemName: "heart")
+            Image(systemName: viewModel.personItem != nil ? "heart.fill" : "heart")
+                .foregroundColor(.green)
         }
     }
     
@@ -76,7 +83,7 @@ struct PersonView: View {
             
             .cornerRadius(25)
         }
-        .offset(y: 100)
+        .offset(y: 90)
     }
     
     //MARK: - avatarView
@@ -200,6 +207,6 @@ private extension CGFloat {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView(person: PersonModel(id: 1, name: "Abradolfr", status: "alive", species: "human", type: "type", gender: "female", image: "https://ptica-village.ru/wp-content/uploads/a/3/f/a3f8de2641d3dcae10c4fe8e8674a6c4.jpeg", url: "url", episodes: ["Episode 1", "Episodw 2"], origin: PersonModel.Place(name: "Earth"), location: PersonModel.Place(name: "Earth")))
+        SearchView()
     }
 }

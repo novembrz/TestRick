@@ -28,7 +28,7 @@ actor NetworkService {
         else { throw try await handleNetworkResponse(httpResponse) }
         
         guard let decodedResponse = try? JSONDecoder().decode(type.self, from: data)
-        else { throw NetworkResponseError.noData }
+        else { throw NetworkResponseError.unableToDecode }
         
         return decodedResponse
     }
@@ -39,11 +39,9 @@ actor NetworkService {
     private func handleNetworkResponse(_ response: HTTPURLResponse) async throws -> NetworkResponseError {
         print("🥩", response.statusCode)
         switch response.statusCode {
-        case 401...500: return NetworkResponseError.authenticationError
-        case 501...599: return NetworkResponseError.badRequest
-        case 600: return NetworkResponseError.outdated
-        default: return NetworkResponseError.serverError
+        case 400...499: return NetworkResponseError.clientError
+        case 500...599: return NetworkResponseError.serverError
+        default: return NetworkResponseError.unknownError
         }
     }
 }
-

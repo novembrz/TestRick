@@ -12,6 +12,6 @@ struct InfoModel: Decodable {
     let results: [PersonModel]
     
     struct Info: Decodable {
-        let next: String
+        let next: String?
     }
 }
