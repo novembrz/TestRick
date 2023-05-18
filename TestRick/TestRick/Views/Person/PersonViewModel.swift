@@ -11,13 +11,12 @@ import RealmSwift
 extension PersonView {
     @MainActor class PersonViewModel: ObservableObject {
 
-        let realmService = RealmService()
         @Published var personItem: PersonItem?
+        private let realmService = RealmService()
 
-        
         var columns: [GridItem] = Array(repeating: .init(.flexible(maximum: UIScreen.main.bounds.width / 2), spacing: 10, alignment: .topLeading), count: 2)
         
-        func checksIsItFavourite(_ personId: Int) {
+        func getPersonItem(_ personId: Int) {
             personItem = realmService.get(type: PersonItem.self, primaryKey: personId)
         }
 

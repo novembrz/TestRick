@@ -26,7 +26,7 @@ struct PersonView: View {
             favouriteButton
         }
         .onAppear {
-            viewModel.checksIsItFavourite(person.id)
+            viewModel.getPersonItem(person.id)
         }
     }
     
@@ -117,7 +117,7 @@ struct PersonView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 23)
             
-            Text(text == "" ? "???" : text)
+            Text(text.isEmpty ? "???" : text)
                 .font(.system(size: 20, weight: .regular))
         }
     }

@@ -15,7 +15,7 @@ struct FavoriteView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.persons != [] {
+                if !viewModel.persons.isEmpty {
                     GridView(persons: viewModel.persons) { _ in }
                 }
             }
@@ -25,7 +25,7 @@ struct FavoriteView: View {
             .onAppear {
                 viewModel.getPersons()
             }
-            .onChange(of: viewModel.persons) { newValue in
+            .onChange(of: viewModel.persons) { _ in
                 viewModel.persons = []
                 viewModel.getPersons()
             }
@@ -44,8 +44,8 @@ private extension String {
 
 //MARK: - Priviews
 
-struct FavoriteView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoriteView()
-    }
-}
+//struct FavoriteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FavoriteView()
+//    }
+//}

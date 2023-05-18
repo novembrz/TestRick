@@ -29,8 +29,6 @@ extension SearchView {
 
         @MainActor
         private func fetchData() async throws {
-            guard nextPage != nil else { return }
-            
             if let infoData = try await service.fetchData(
                 urlString: (nextPage == nil ? .urlString : nextPage)!,
                 model: InfoModel.self
