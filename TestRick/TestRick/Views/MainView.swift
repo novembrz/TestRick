@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    let realmService = RealmService()
+    
     var body: some View {
         TabView {
             SearchView()
@@ -17,7 +19,7 @@ struct MainView: View {
                     Text(String.searchTitle)
                 }
             
-            FavoriteView()
+            FavoriteView(viewModel: FavoriteView.FavoriteViewModel(realmService: realmService))
                 .tabItem {
                     Image(systemName: .favoriteIconName)
                     Text(String.favoriteTitle)
