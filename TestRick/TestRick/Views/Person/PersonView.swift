@@ -163,7 +163,7 @@ struct PersonView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 13) {
                         ForEach(episodes, id: \.self) { episode in
-                            Episode(episode.deletingPrefix("https://rickandmortyapi.com/api/episode/"))
+                            Episode(episode.deletingPrefix(.episodeUrl))
                         }
                     }
                     .padding(.horizontal, .horizontalSpacing)
@@ -194,6 +194,7 @@ private extension String {
     static let episodesTitle = "Episodes"
     static let lastLocation = "Last known location"
     static let originLocation = "First seen in:"
+    static let episodeUrl = "https://rickandmortyapi.com/api/episode/"
 }
 
 private extension CGFloat {

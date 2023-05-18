@@ -34,8 +34,8 @@ struct PersonModel: Decodable {
         self.image = object.image
         self.url = object.url
         self.episode = Array(object.episode)
-        self.origin = Place(name: object.placeOrigin ?? "")
-        self.location = Place(name: object.placeLocation ?? "")
+        self.origin = object.placeOrigin != nil ? Place(name: object.placeOrigin!) : nil
+        self.location = object.placeLocation != nil ? Place(name: object.placeLocation!) : nil
     }
 }
 

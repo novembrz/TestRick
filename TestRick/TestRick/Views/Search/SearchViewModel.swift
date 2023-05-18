@@ -16,7 +16,7 @@ extension SearchView {
         @Published var fetchPersons: [PersonModel] = []
         @Published var searchText: String = ""
 
-        var nextPage: String? = ""
+        var nextPage: String?
         var isSearching = false
         
         //MARK: - Fetch
@@ -32,7 +32,7 @@ extension SearchView {
             guard nextPage != nil else { return }
             
             if let infoData = try await service.fetchData(
-                urlString: (nextPage == "" ? .urlString : nextPage)!,
+                urlString: (nextPage == nil ? .urlString : nextPage)!,
                 model: InfoModel.self
             ) {
                 self.fetchPersons += infoData.results

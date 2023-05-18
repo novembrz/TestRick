@@ -34,23 +34,11 @@ struct GridView: View {
             PersonView(person: person)
         } label: {
             VStack {
-                CacheAsyncImage(
-                    url: URL(string: person.image ?? "")!
-                ) { phase in
-                    switch phase {
-                    case .empty, .failure(_):
-                        ProgressView()
-                    case .success(let image):
-                        image.resizable()
-                    @unknown default:
-                        fatalError()
-                    }
+                if let image = person.image, let url =  URL(string: image) {
+                    ImageView(url: url)
+                } else {
+                    ProgressView()
                 }
-                .aspectRatio(contentMode: .fill)
-                .frame(height: .imageHeight)
-                .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
-                .clipped()
-                .cornerRadius(.itemCornerRadius)
                 
                 Text(person.name)
                     .font(.system(size: .textSize, weight: .regular))
@@ -60,6 +48,25 @@ struct GridView: View {
                 completion(isLast)
             }
         }
+    }
+    
+    @ViewBuilder
+    func ImageView(url: URL) -> some View {
+        CacheAsyncImage(url: url) { phase in
+            switch phase {
+            case .empty, .failure(_):
+                ProgressView()
+            case .success(let image):
+                image.resizable()
+            @unknown default:
+                fatalError()
+            }
+        }
+        .aspectRatio(contentMode: .fill)
+        .frame(height: .imageHeight)
+        .frame(minWidth: .minWidth, maxWidth: .maxWidth, alignment: .top)
+        .clipped()
+        .cornerRadius(.itemCornerRadius)
     }
 }
 

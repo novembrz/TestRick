@@ -56,11 +56,11 @@ struct SearchView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: .searchSize)
-                .foregroundColor(viewModel.searchText != "" ? .black : Color.search().opacity(.iconColorOpacity))
+                .foregroundColor(!viewModel.searchText.isEmpty ? .black : Color.search().opacity(.iconColorOpacity))
             
             Spacer()
             
-            if viewModel.searchText != "" {
+            if !viewModel.searchText.isEmpty {
                 Button {
                     viewModel.searchText = ""
                 } label: {
