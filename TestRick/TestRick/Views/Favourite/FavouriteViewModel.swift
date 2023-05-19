@@ -11,12 +11,8 @@ import RealmSwift
 extension FavoriteView {
     @MainActor class FavoriteViewModel: ObservableObject {
         
-        let realmService: RealmService
+        private let realmService = RealmService()
         @Published var persons: [PersonModel] = []
-        
-        init(realmService: RealmService) {
-            self.realmService = realmService
-        }
         
         func getPersons() {
             persons = realmService.getAll(type: PersonItem.self).map { PersonModel(object: $0) }

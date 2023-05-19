@@ -10,7 +10,7 @@ import RealmSwift
 
 struct FavoriteView: View {
     
-    @StateObject var viewModel: FavoriteViewModel
+    @StateObject var viewModel = FavoriteViewModel()
     
     var body: some View {
         NavigationView {

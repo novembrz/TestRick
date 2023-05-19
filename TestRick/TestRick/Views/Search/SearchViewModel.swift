@@ -23,7 +23,16 @@ extension SearchView {
 
         func getPersons() {
             Task {
-                try? await fetchData()
+                //try? await fetchData()
+                
+                if let infoData = try await service.fetchData(
+                    urlString: (nextPage == nil ? .urlString : nextPage)!,
+                    model: InfoModel.self
+                ) {
+                    self.fetchPersons += infoData.results
+                    self.persons = fetchPersons
+                    self.nextPage = infoData.info.next
+                }
             }
         }
 

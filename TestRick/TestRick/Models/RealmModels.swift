@@ -28,7 +28,7 @@ final class PersonItem: Object, ObjectKeyIdentifiable {
     
     init(personId: Int, name: String, status: String, species: String, type: String, gender: String, image: String? = nil, url: String, episode: [String]?, placeOrigin: String? = nil, placeLocation: String? = nil) {
         
-        let _episode = List<String>()
+        let _episode = List<String>() // аналог найди
         if let episode = episode {
             _episode.append(objectsIn: episode)
         }

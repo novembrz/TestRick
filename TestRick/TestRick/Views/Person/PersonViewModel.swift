@@ -12,7 +12,7 @@ extension PersonView {
     @MainActor class PersonViewModel: ObservableObject {
 
         @Published var personItem: PersonItem?
-        private let realmService = RealmService()
+        private let realmService = RealmService() //lazy // common service for all services with protocol
 
         var columns: [GridItem] = Array(repeating: .init(.flexible(maximum: UIScreen.main.bounds.width / 2), spacing: 10, alignment: .topLeading), count: 2)
         
